@@ -22,6 +22,9 @@ namespace Miscellaneous
                         case "ClassicObserver":
                             ClassicObserver();
                             break;
+                        case "EventObserver":
+                            EventObserver();
+                            break;
                         default:
                             break;
                     }
@@ -36,12 +39,23 @@ namespace Miscellaneous
 
         private static void ClassicObserver()
         {
-            var observerA = new ObserverA();
-            var observerB = new ObserverB();
-            var clock = new Clock("Bomb!", 2);
+            var observerA = new ObserverPattern.Classic.ObserverA();
+            var observerB = new ObserverPattern.Classic.ObserverB();
+            var clock = new ObserverPattern.Classic.Clock();
             clock.Add(observerA);
             clock.Add(observerB);
-            clock.Alert();
+            clock.Run("Bomb!", 2);
+        }
+
+        private static void EventObserver()
+        {
+            var observerA = new ObserverPattern.Event.ObserverA();
+            var observerB = new ObserverPattern.Event.ObserverB();
+            var clock = new ObserverPattern.Event.Clock();
+            observerA.Subscribe(clock);
+            observerB.Subscribe(clock);
+
+            clock.Run("Bomb!", 2);
         }
     }
 }
