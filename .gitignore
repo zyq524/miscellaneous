@@ -1,0 +1,31 @@
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+
+# bin obj #
+bin/
+obj/
+
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.vspscc
+*.vssscc
+
+# NuGet
+packages/
