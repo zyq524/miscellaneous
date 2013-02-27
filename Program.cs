@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using ObserverPattern.Classic;
 using CommandLine;
+using DesignPatterns;
+using Algorithms;
 
 namespace Miscellaneous
 {
@@ -24,6 +26,12 @@ namespace Miscellaneous
                             break;
                         case "EventObserver":
                             EventObserver();
+                            break;
+                        case "Factory":
+                            Factory();
+                            break;
+                        case "Combine":
+                            Combine();
                             break;
                         default:
                             break;
@@ -56,6 +64,22 @@ namespace Miscellaneous
             observerB.Subscribe(clock);
 
             clock.Run("Bomb!", 2);
+        }
+
+        private static void Factory()
+        {
+            FactoryPattern.Creator c = new FactoryPattern.Creator();
+            for (int i = 1; i <= 12; i++)
+            {
+                var product = c.Create(i);
+                Console.WriteLine(product.ShipFrom());
+            }
+        }
+
+        private static void Combine()
+        {
+            var recursion = new Recursion();
+            recursion.Combine("wxyz");
         }
     }
 }
